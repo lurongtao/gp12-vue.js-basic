@@ -6,6 +6,7 @@ const data = {
     '🍌',
     '🍇'
   ],
+  title: [],
   products: []
 }
 
@@ -47,6 +48,8 @@ var vm = new Vue({
     //   price: 100,
     //   inventory: 9
     // })
+    this.title = ['a', 'b']
+    console.log(this)
 
     fetch('https://api.myjson.com/bins/7i3ev')
       .then(response => response.json())
