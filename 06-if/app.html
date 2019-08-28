@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-if</title>
+</head>
+<body>
+  <div id="root">
+    <div v-if="isShowInfo">
+      <div>
+        {{message}}
+      </div>
+      <div>
+        {{info}}
+      </div>
+    </div>
+
+    <div v-show="isShowInfo">
+      <div>
+        {{message}}
+      </div>
+      <div>
+        {{info}}
+      </div>
+    </div>
+
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input key="abc" placeholder="Enter your username">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input key="def" placeholder="Enter your email address">
+    </template>
+
+    <div><button @click="handleClick">click</button></div>
+
+    <div>
+      <ul v-if="index!==1">
+        <li v-for="item, index in tabs">
+          {{item.title}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

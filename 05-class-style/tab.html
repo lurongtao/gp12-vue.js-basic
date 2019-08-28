@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>tab bar</title>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <li
+        :class="{active: currentIndex === index}" 
+        v-for="(tabitem, index) in tabs"
+        @click="handleClick(index)"
+      >{{tabitem.title}}</li>
+    </ul>
+    <div :style="{fontWeight: style}">
+      {{tabs[currentIndex].content}}
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="./tabbar.js"></script>
+</body>
+</html>

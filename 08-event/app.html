@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <base href="http://www.baidu.com">
+  <title>event</title>
+</head>
+<body>
+  <div id="root">
+    {{name}}
+    <div @click.self="handleDivClick" style="width: 100px; height: 100px; background: yellow"><button @click="handleClick($event, 'gp12')">click</button></div>
+    <div>
+      <input @keyup.37="handleInput" type="text" value="text" />
+    </div>
+    <div><a href="index.html">baidu</a></div>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
