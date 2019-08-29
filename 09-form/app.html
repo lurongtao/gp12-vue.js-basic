@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>form</title>
+</head>
+<body>
+  <div id="root">
+    <!-- <input type="text" v-model="username">
+    <span>{{username}}</span>
+    <textarea name="" id="" cols="30" rows="10" v-model="content"></textarea>
+    <pre>{{content}}</pre> -->
+    <!-- <input type="checkbox" value="movies" v-model="hobbies"> movies
+    <input type="checkbox" value="music" v-model="hobbies"> music
+    <input type="checkbox" value="tv" v-model="hobbies"> tv
+    <div>{{hobbies}}</div> -->
+    <!-- <input type="radio" value="boy" v-model="gender"> 男
+    <input type="radio" value="girl" v-model="gender"> 女
+    <div>{{gender}}</div> -->
+    <!-- <select>
+      <option selected>请选择</option>
+      <option v-for="city in colleage.name" :value="city">{{city}}</option>
+    </select>
+    <div>{{city}}</div> -->
+    <!-- <input type="checkbox" v-model="checked" true-value="yes" false-value="no">
+    <div>{{checked}}</div> -->
+    <!-- <input type="text" v-model="colleage.name"> -->
+    <input type="text" v-model.lazy="username">
+    <div>{{username}}</div>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
