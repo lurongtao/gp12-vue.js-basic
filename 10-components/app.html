@@ -7,12 +7,44 @@
   <title>components</title>
 </head>
 <body>
-  <div id="root">
+  <!-- <div id="root">
     <blog></blog>
     <custom-input v-model="text"></custom-input>
     <div>{{text}}</div>
+  </div> -->
+  <!-- <div id="root">
+    <child>
+      <div>
+        <ul>
+          <li>list1</li>
+          <li>list1</li>
+          <li>list1</li>
+        </ul>
+      </div>
+      <div slot="div2">
+        <h2>title2</h2>
+      </div>
+      <div slot="div3">
+        <h3>title3</h3>
+      </div>
+    </child>
+  </div> -->
+  <!-- <div id="root">
+    <ul>
+      <li @click="handleClick(comp1)">comp1</li>
+      <li @click="handleClick(comp2)">comp2</li>
+      <li @click="handleClick(comp3)">comp3</li>
+    </ul>
+    <div>
+      <component :is="currentComp"></component>
+    </div>
+  </div> -->
+  <div id="root">
+    <table v-cloak>
+      <tr is="fruit" v-for="fruit in list" :key="fruit" :fruit="fruit"></tr>
+    </table>
   </div>
   <script src="../vue.js"></script>
-  <script src="./app.js"></script>
+  <script src="./app-component-notice.js"></script>
 </body>
 </html>

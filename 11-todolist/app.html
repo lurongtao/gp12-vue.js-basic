@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+		<title>ToDoList—最简单的待办事项列表</title>
+		<meta name="description" content="ToDoList无须注册即可使用，数据存储在用户浏览器的html5本地数据库里，是最简单最安全的待办事项列表应用！" />
+		<link rel="stylesheet" href="app.css">
+	</head>
+	<body>
+    <div id="root">
+      <header>
+        <section>
+          <label for="title">ToDoList</label>
+          <input @keyup.enter="handleKeyup" v-model="task" type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+        </section>
+      </header>
+      <section>
+        <h2 onclick="save()">正在进行 <span>{{todolist.length - finishedCount}}</span></h2>
+        <ol id="todolist" class="demo-box">
+          <li v-for="item,index in todolist" v-if="!item.finished" draggable="true">
+            <input type="checkbox" @click.prevent="handleClick(item.id)">
+            <p><input type="text" @click="handleInputClick(item.id)" @blur="currentId=''" :class="{noneborder: currentId !== item.id}" v-model="item.name"></p>
+            <a href="#" @click.prevent="handleAncherClick(item.id)">-</a>
+          </li>
+        </ol>
+        <h2>已经完成 <span>{{finishedCount}}</span></h2>
+        <ul id="donelist">
+          <li v-for="item,index in todolist" v-if="item.finished" draggable="true">
+            <input type="checkbox" checked @click.prevent="handleClick(item.id)">
+            <p><input type="text" @click="handleInputClick(item.id)" @blur="currentId=''" :class="{noneborder: currentId !== item.id}" v-model="item.name"></p>
+            <a href="#" @click.prevent="handleAncherClick(item.id)">-</a>
+          </li>
+        </ul>
+      </section>
+      <footer>
+        Copyright &copy; 2014 todolist.cn <a href="javascript:clear();">clear</a>
+      </footer>
+    </div>
+    <script src="../vue.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+	</body>
+</html>
