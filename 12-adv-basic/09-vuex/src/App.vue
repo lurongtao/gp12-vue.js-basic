@@ -1,45 +1,95 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <!-- <button @click="DECREMENT">-</button> 
+    {{mycount}} {{myvar}}
+    <button
+      @click="handleClick"
+    >+</button>
+    <button
+      @click="handlePlusClick"
+    >++</button>
+    <button @click="handleAsyncIncClick">
+      async +
+    </button>
+    <Cart></Cart> -->
+
+    <div>
+      {{counter}}
+      <button @click="handleClick">click</button>
     </div>
-    <router-view/>
   </div>
 </template>
 
 <script>
+import Cart from './components/Cart'
+import { mapState, mapGetters, mapMutations } from 'vuex'
+import { DECREMENT } from './store/mutation-types.js'
 export default {
+  components: {
+    Cart
+  },
+
   data() {
     return {
-      message: 'hi'
+      count2: 100
     }
   },
-  provide: function() {
-    return {
-      myname: 'junhao',
-      sayName(name) {
-        console.log(name)
-      }
+
+  mounted() {
+    // console.log(this)
+  },
+  
+  computed: {
+    // ...mapGetters({
+    //   myvar() {
+    //     return this.$store.getters.myvar(6)
+    //   }
+    // }),
+    // myvar() {
+    //   return this.$store.getters.myvar(6)
+    // },
+    // ...mapState({
+    //   mycount (state) {
+    //     return state.count
+    //   }
+    // }),
+
+    counter() {
+      return this.$store.state.counter.count
     }
-  }
+    // myvar() {
+    //   return '￥' + this.$store.state.count
+    // },
+    // myvar() {
+    //   return this.$store.getters.myvar
+    // }
+  },
+
+  methods: {
+    // ...mapMutations([DECREMENT]),
+    // handleClick() {
+    //   // this.$store.commit('increment')
+    //   this.$store.state.count++
+    // },
+
+    // handlePlusClick() {
+    //   this.$store.commit({
+    //     type: 'increment',
+    //     payload: 5
+    //   })
+    // },
+
+    // handleMinusClick() {
+    //   this.$store.commit(DECREMENT)
+    // },
+
+    // handleAsyncIncClick() {
+    //   this.$store.dispatch('asyncIncrement')
+    // }
+
+    handleClick() {
+      this.$store.commit('products/increment')
+    }
+  },
 }
 </script>
-
-
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-
-#nav
-  padding 30px
-  a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
-</style>
