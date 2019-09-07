@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <title>animate</title>
+</head>
+<body>
+  <div id="root">
+    <transition
+      enter-active-class="animated swing"
+      leave-active-class="animated shake"
+    >
+      <div v-if="isShow">animate</div>
+    </transition>
+    <div>
+      <button @click="handleClick">显示/隐藏</button>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
